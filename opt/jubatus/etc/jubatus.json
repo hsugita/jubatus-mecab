@@ -1,0 +1,27 @@
+{
+  "method": "PA2",
+  "parameter": {
+    "regularization_weight": 0.001
+  },
+  "converter" : {
+    "string_filter_types" : {},
+    "string_filter_rules" : [],
+    "num_filter_types" : {},
+    "num_filter_rules" : [],
+    "string_types" : {
+      "bigram":  { "method": "ngram", "char_num": "2" },
+      "mecab": {
+        "method": "dynamic",
+        "path": "libmecab_splitter.so",
+        "function": "create"
+      }
+    },
+    "string_rules" : [
+      { "key": "text", "type": "mecab", "sample_weight": "tf", "global_weight": "idf" }
+    ],
+    "num_types" : {},
+    "num_rules" : [
+      { "key" : "*", "type" : "num" }
+    ]
+  }
+}
