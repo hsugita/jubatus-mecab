@@ -26,7 +26,8 @@ RUN rm -rf mecab-ipadic-2.7.0-20070801*
 #################### jubatus https://github.com/kotas/docker-jubatus-classifier
 RUN echo "deb http://download.jubat.us/apt binary/" | tee /etc/apt/sources.list.d/jubatus.list
 RUN apt-get update && apt-get install -y --force-yes jubatus
-RUN cp /opt/jubatus/share/jubatus/example/config/classifier/pa.json /opt/jubatus/etc/jubatus.json
+RUN cp /opt/jubatus/share/jubatus/example/config/clustering/default.json /opt/jubatus/etc/jubatus.json
+
 RUN mkdir -p /opt/jubatus/data
 
 ADD ./run.sh /run.sh
